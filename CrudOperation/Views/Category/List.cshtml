@@ -1,0 +1,39 @@
+﻿@model List<CrudOperation.Models.Model.Category>;
+
+    <div class="bg-warning bg-opacity-10 py-2">
+        <div class="container">
+        <h3 class="text-center">List of Available Categories</h3>
+
+        </div>
+
+    </div>
+    <div class="container py-3">
+    @if(Model!=null && Model.Any())
+    {
+        <table class="table">
+            <thead class="bg-warning
+">
+            <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                   <tr>
+                       <td>@item.CategoryId</td>
+                       <td>@item.CategoryName</td>
+                       <td > <a asp-area="" asp-action="Edit" asp-controller="Category" asp-route-id="@item.CategoryId">Edit</a></td>
+                   </tr> 
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h1>There is no data Found</h1>
+    }
+
+    </div>
